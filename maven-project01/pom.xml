@@ -20,6 +20,7 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
             <version>6.1.4</version>
+            <scope>compile</scope>
 
             <!--排除依赖-->
             <exclusions>
@@ -35,6 +36,8 @@
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
             <version>5.9.1</version>
+            <!-- 仅test可用此依赖 -->
+            <scope>test</scope>
         </dependency>
 
 
