@@ -1,5 +1,6 @@
 package com.itheima;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class UserServiceTest {
@@ -15,5 +16,15 @@ public class UserServiceTest {
         UserService userService = new UserService();
         String gender = userService.getGender("10000020010206002X");
         System.out.println(gender);
+    }
+
+    /*
+    断言 Assert
+     */
+    @Test
+    public void testGetGenderAssert() {
+        UserService userService = new UserService();
+        String gender = userService.getGender("10000020010206002X");
+        Assertions.assertEquals("女", gender);
     }
 }
