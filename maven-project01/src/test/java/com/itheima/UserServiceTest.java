@@ -25,6 +25,18 @@ public class UserServiceTest {
     public void testGetGenderAssert() {
         UserService userService = new UserService();
         String gender = userService.getGender("10000020010206002X");
-        Assertions.assertEquals("女", gender);
+        Assertions.assertEquals("女", gender, "性别断言失败");
+    }
+
+    /*
+     测试性别断言失败，出现空指针异常
+     */
+    @Test
+    public void testGetGenderAssert2() {
+        UserService userService = new UserService();
+        String gender = userService.getGender("10000020010206002X");
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+                userService.getGender(null);
+        });
     }
 }
