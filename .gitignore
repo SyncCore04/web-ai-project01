@@ -16,3 +16,8 @@ target/
 # 操作系统
 .DS_Store
 Thumbs.db
+
+# workbuddy
+.workbuddy/
+test-run.log
+test-summary.txt
