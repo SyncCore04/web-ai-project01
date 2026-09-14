@@ -9,4 +9,11 @@ public class UserServiceTest {
         int age = userService.getAge("10000020010206002X");
         System.out.println(age);
     }
+
+    @Test
+    public void testGetGender() {
+        UserService userService = new UserService();
+        String gender = userService.getGender("10000020010206002X");
+        System.out.println(gender);
+    }
 }
