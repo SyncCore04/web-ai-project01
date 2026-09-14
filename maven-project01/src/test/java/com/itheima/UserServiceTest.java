@@ -2,6 +2,8 @@ package com.itheima;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 public class UserServiceTest {
     @Test
@@ -39,4 +41,18 @@ public class UserServiceTest {
                 userService.getGender(null);
         });
     }
+
+    /*
+    参数化测试
+    批量测试
+     */
+    @ParameterizedTest
+    @ValueSource(strings = {"100000200010011011", "100000200010011031", "100000200010011051"})
+    public void testGetGender2(String idCard){
+        UserService userService = new UserService();
+        String gender = userService.getGender(idCard);
+        //断言
+        Assertions.assertEquals("男", gender);
+    }
+
 }
