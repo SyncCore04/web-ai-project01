@@ -1,6 +1,7 @@
 package com.itheima;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -46,6 +47,7 @@ public class UserServiceTest {
     参数化测试
     批量测试
      */
+    @DisplayName("性别参数化测试")
     @ParameterizedTest
     @ValueSource(strings = {"100000200010011011", "100000200010011031", "100000200010011051"})
     public void testGetGender2(String idCard){
