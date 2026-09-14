@@ -4,7 +4,9 @@ import org.junit.jupiter.api.Test;
 
 public class UserServiceTest {
     @Test
-    public void testAddUser() {
-        System.out.println("testAddUser");
+    public void testGetAge() {
+        UserService userService = new UserService();
+        int age = userService.getAge("10000020010206002X");
+        System.out.println(age);
     }
 }
