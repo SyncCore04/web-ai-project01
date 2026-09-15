@@ -10,4 +10,6 @@ public class SpringbootWebQuickstartApplication {
         SpringApplication.run(SpringbootWebQuickstartApplication.class, args);
     }
 
+    // 访问 http://localhost:8080/hello?name=tom
+
 }
