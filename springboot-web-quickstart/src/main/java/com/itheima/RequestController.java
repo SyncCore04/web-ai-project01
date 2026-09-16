@@ -42,6 +42,7 @@ public class RequestController {
         String requestBody = request.getReader().lines().collect(Collectors.joining());
         System.out.println("请求体 "+requestBody);
 
+        //int n=1/0;//返回500报错
         return "OK";
     }
 }
