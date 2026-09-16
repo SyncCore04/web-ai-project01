@@ -2,6 +2,7 @@ package com.itheima;
 
 
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,6 +20,15 @@ public class ResponseController {
         response.setHeader("name","itheima");
         // 3.设置响应体
         response.getWriter().write("<h1>hello itheima</h1>");
+    }
+
+
+    @RequestMapping("/response2")
+    public ResponseEntity<String> response2(){
+        return ResponseEntity
+                .ok()
+                .header("name","itheima2")
+                .body("<h2>hello itheima2</h2>");
     }
 }
 
