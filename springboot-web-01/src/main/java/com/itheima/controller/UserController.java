@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 import static java.lang.System.in;
 
 //  用户信息控制器
-@RestController
+@RestController //子注解@ResponseBody -> 将Controller返回的数据转换为json格式
 
 public class UserController {
 
