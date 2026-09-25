@@ -17,6 +17,7 @@ public class UserController {
     @RequestMapping("/list")
     public List<User> list() {
         return userService.findAll();
+        // @RestController 会把 List<User> 自动转换成 JSON 数组返回
     }
 
 }

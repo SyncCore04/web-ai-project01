@@ -6,9 +6,10 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+@Data   //自动生成get/set方法
+@NoArgsConstructor //自动生成无参构造
+@AllArgsConstructor //自动生成有参构造
+
 public class User {
 
     // 封装用户信息
@@ -17,7 +18,6 @@ public class User {
     private String password;
     private String name;
     private Integer age;
-    private LocalDateTime updateTime;
-
+    private LocalDateTime createTime;
 
 }

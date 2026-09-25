@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface UserDao {
 
-    public List<String> findAll();
+    public List<String> findAll(); //查询方法
 }

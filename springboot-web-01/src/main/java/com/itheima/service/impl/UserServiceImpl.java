@@ -10,16 +10,18 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-@Service
+@Service //业务层
 public class UserServiceImpl implements UserService {
 
-    @Autowired
+    @Autowired //让 spring 把 userdao 的实现类对象注入进来(不用自己new)
     private UserDao userDao;
 
     @Override
     public List<User> findAll() {
+        //1.调用Dao(数据层)的方法查询所有用户信息
         List<String> lines = userDao.findAll();
 
+        //2.用 Stream 把每一行解析成 User 对象
         List<User> userList = lines.stream().map(line -> {
             String[] parts = line.split(",");
             Integer id = Integer.parseInt(parts[0]);

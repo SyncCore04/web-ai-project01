@@ -11,6 +11,7 @@ public class SpringbootWeb01Application {
         SpringApplication.run(SpringbootWeb01Application.class, args);
         System.out.println("项目启动成功！！！");
         System.out.println("静态网页地址: http://localhost:8080/user.html");
+        System.out.println("JSON 数据地址: http://localhost:8080/list");
     }
 
 }
