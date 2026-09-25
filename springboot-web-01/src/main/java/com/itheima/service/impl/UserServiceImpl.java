@@ -4,13 +4,15 @@ import com.itheima.dao.UserDao;
 import com.itheima.pojo.User;
 import com.itheima.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-@Service //业务层
+//@Service //业务层
+@Component
 public class UserServiceImpl implements UserService {
 
     @Autowired //让 spring 把 userdao 的实现类对象注入进来(不用自己new)
