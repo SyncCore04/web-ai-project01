@@ -10,9 +10,37 @@ import java.util.List;
 
 @RestController
 public class UserController {
+    // 方式一：属性注入
+    //@Autowired
+    //private UserService userService;
+
+    // 方式二：构造方法注入
+//    private final UserService userService;
+//
+//    //@Autowired
+//    //如果当前类中，只存在一个构造方法，那么该注解可省略
+//    public UserController(UserService userService) {
+//        this.userService = userService;
+//    }
+
+
+
+    // 方式三：set 方法注入
+    private UserService userService;
 
     @Autowired
-    private UserService userService;
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
+
+    public UserService getUserService() {
+        return userService;
+    }
+
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
+
 
     @RequestMapping("/list")
     public List<User> list() throws Exception {
