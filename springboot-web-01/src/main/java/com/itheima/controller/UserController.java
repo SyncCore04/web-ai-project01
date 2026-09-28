@@ -2,6 +2,7 @@ package com.itheima.controller;
 
 import com.itheima.pojo.User;
 import com.itheima.service.UserService;
+import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,6 +27,7 @@ public class UserController {
 
 
     // 方式三：set 方法注入
+    @Resource(name = "userService")
     private UserService userService;
 
     @Autowired
