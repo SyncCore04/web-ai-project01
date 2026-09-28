@@ -1,0 +1,45 @@
+# ============================================================
+#  WSL2 (Docker Desktop) 上的 MySQL 8.0
+#  宿主访问端口：127.0.0.1:3307  —— 刻意避开 Windows 原生 MySQL80 占用的 3306
+#  启动：docker compose up -d
+#  停止：docker compose down          （保留数据）
+#  重置：docker compose down -v       （⚠️ 删除数据，谨慎）
+# ============================================================
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-wsl
+    restart: unless-stopped
+
+    # 三个关键参数，别删：
+    #   utf8mb4            -> 中文/emoji 不炸
+    #   default-time-zone  -> 绕开 JDBC 那个 "server time zone value ... unreconized" 报错
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_0900_ai_ci
+      - --default-time-zone=+08:00
+
+    environment:
+      MYSQL_ROOT_PASSWORD: root123456
+      TZ: Asia/Shanghai
+
+    ports:
+      # 「127.0.0.1:」不能省 —— 只绑本机回环，不暴露给局域网
+      # 以后真要给别的电脑连，再改成 "3307:3306"
+      - "127.0.0.1:3307:3306"
+
+    volumes:
+      - mysql-data:/var/lib/mysql
+      # 这个目录里的 .sql 只在「数据卷为空」的首次启动时自动执行一次，详见 README
+      - ./init:/docker-entrypoint-initdb.d:ro
+
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-proot123456"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 40s
+
+volumes:
+  mysql-data:
