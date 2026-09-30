@@ -56,4 +56,51 @@ create table emp (
     update_time datetime comment '修改时间'
 ) comment '员工表';
 
+-- 查看当前数据库的所有表
+show tables;
 
+-- 查看表结构
+desc emp;
+
+-- 查看建表语句
+show create table emp;
+
+-- 添加字段 qq varchar(10)
+alter table emp add qq varchar(10) comment 'QQ号';
+
+-- 修改qq字段为 varchar(15)
+alter table emp modify qq varchar(15) comment 'QQ号';
+
+-- 修改qq字段名 qq_num
+alter table emp rename column qq to qq_num;
+
+-- 删除qq_num字段
+alter table emp drop column qq_num;
+
+-- 修改表 emp rename to employee;
+alter table emp rename to employee;
+alter table employee rename to emp;
+
+
+-- DML : 数据操作语言
+-- 插入数据
+-- 1.为emp表插入数据
+insert into emp(username, password, name, gender, phone, job, salary, entry_date, image,create_time,update_time)
+    values('Tom', '123456', '汤姆', 1, '13800000000',
+           1, 5000, '2023-01-01', 'https://www.baidu.com',
+           now(),now());
+
+insert into emp(username, password, name, gender, phone, job, salary, entry_date, image,create_time,update_time)
+    values('Rose', '123456', '罗斯', 2, '13800000001',
+           2, 5000, '2023-01-02', 'https://www.baidu.com',
+           now(),now());
+
+-- 2.为emp表插入多条数据
+insert into emp(username, password, name, gender, phone, job, salary, entry_date, image,create_time,update_time)
+values
+    ('Weili', '123456', '伟丽', 2, '13800000002',
+       2, 5000, '2023-01-02', 'https://www.baidu.com',
+       now(),now()),
+    ('Conner', '123456', '康纳', 2, '13800000003',
+       2, 8000, '2023-01-02', 'https://www.baidu.com',
+       now(),now());
