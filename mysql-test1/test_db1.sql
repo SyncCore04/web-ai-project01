@@ -104,3 +104,21 @@ values
     ('Conner', '123456', '康纳', 2, '13800000003',
        2, 8000, '2023-01-02', 'https://www.baidu.com',
        now(),now());
+
+-- update 更新数据
+-- 1.将 emp 表中 id 为 1 的员工薪资更新为 6000
+update emp set salary = 6000 where id = 1 and job = 1;
+
+-- 1.将 emp 表所有的入职日期改为"2025-01-01"
+update emp set entry_date = '2025-01-01';
+
+
+-- delete 删除数据
+-- 0.增加一个临时员工
+insert into emp(username, password, name, gender, phone, job, salary, entry_date, image,create_time,update_time)
+    values('Temp', '123456', '临时员工', 2, '13800000004',
+           2, 5000, '2023-01-02', 'https://www.baidu.com',
+           now(),now());
+
+-- 1.删除 emp 表中 id 为 6 的员工(临时员工)
+delete from  emp where  id = 6;
