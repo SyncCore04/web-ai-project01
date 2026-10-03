@@ -169,6 +169,7 @@ select name,entry_date from emp;
 
 -- 2. 查询返回所有字段
 select * from emp;
+-- 注意：* 表示查询所有字段，建议在生产环境中避免使用 *，因为会返回所有字段，包括密码等敏感信息。
 
 -- 3. 查询所有员工的 name,entry_date, 并起别名(姓名、入职日期)
  select name as 姓名,entry_date as 入职日期 from emp;
