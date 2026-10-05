@@ -210,3 +210,31 @@ SELECT * FROM emp WHERE name LIKE '李%';
 
 -- 11. 查询 姓名中包含 '二' 的员工信息
 SELECT * FROM emp WHERE name LIKE '%二%';
+
+
+-- =================== DQL: 分组查询 ======================
+-- 聚合函数
+-- 注意：所有的聚合函数不参与null统计
+
+-- 1. 统计该企业员工数量 -count
+select count(*) from emp;
+
+-- 2. 统计该企业员工的平均薪资 -avg
+select avg(salary) from emp;
+
+-- 3. 统计该企业员工的最大薪资 -max
+select max(salary) from emp;
+
+-- 4. 统计该企业员工的最小薪资 -min
+select min(salary) from emp;
+
+-- 5. 统计该企业员工的总薪资 -sum
+select sum(salary) from emp;
+
+-- 分组
+-- 1.根据性别查找
+select emp.gender,count(*) from emp group by emp.gender;
+
+-- 2.先查询入职时间在 '2015-01-01'以前的员工，并结果根据职位分组，获取员工数量大于等于2的职位
+select emp.job,count(*) from emp where entry_date <= '2015-01-01'
+                                 group by emp.job having count(*) >= 2;
